@@ -1,33 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import Grid from 'react-bootstrap/lib/Button';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
+import Grid from 'react-bootstrap/lib/Grid';
 import styled from 'styled-components';
+import './App.css';
+import Header from './components/header/Header';
+import Menu from './components/menu/Menu';
+import Content from './components/content/Content';
+import Bcg from './img/Фон.jpg';
 
-// const Button = styled.button``;
+const MainColor = '#505050';
 
-class App extends Component {
+const HeaderWrapper = styled.header`
+  background: ${MainColor};
+`
+
+const MenuWrapper = styled.div``
+
+const ContentWrapper = styled.div`
+  background: url(${Bcg});
+  height: 560px;
+  display: flex;
+  align-items: center;
+`
+
+class App extends React.Component {
   render() {
     return (
-      <div className="wrapper" > 
-        <SayName name="Name" surname="Surname" link="#"/>
-        <SayName name="Tanya" surname="adf" link="https://google.com" />
-        <SayName name="Peta" surname="FASD" link="https://google.com" />
+      <div class="App">
+        <HeaderWrapper>
+          <Grid>
+            <Header />
+          </Grid>
+        </HeaderWrapper>
+        <MenuWrapper>
+          <Grid>
+            <Menu />
+          </Grid>
+        </MenuWrapper>
+        <ContentWrapper>
+          <Grid>
+            <Content />
+          </Grid>
+        </ContentWrapper>
       </div>
     );
   }
-}
-function SayName(props) {
-  return (
-    <div>
-      <h1>My name: {props.name}</h1>
-      <h2>My surname: {props.surname}</h2>
-      <a href={props.link}>Link my profile</a>
-    </div>
-  )
 }
 
 export default App;
